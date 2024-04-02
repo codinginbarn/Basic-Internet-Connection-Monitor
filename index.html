@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Internet Connection Monitor</title>
+    <style>
+        #connectMessage {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #ff9999;
+            color: #fff;
+            text-align: center;
+            z-index: 9999;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="connectMessage" style="display: none;">Your connection to the internet is down...</div>
+
+    <script>
+        let isConnected = true;
+        const connectMessage = document.getElementById('connectMessage');
+
+        function checkConnection() {
+            const img = new Image();
+            img.src = 'https://example.com/tiny.png'; // Replace with the URL of a small image file on a remote server
+            img.onload = () => isConnected = true;
+            img.onerror = () => {
+                isConnected = false;
+                connectMessage.style.display = 'block';
+            };
+        }
+
+        setInterval(checkConnection, 60000); // Check internet connection every 60 seconds, adjust accordingly
+    </script>
+</body>
+</html>
