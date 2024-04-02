@@ -1,4 +1,4 @@
-# Basic-Internet-Connection-Monitor
+# Basic Internet Connection Monitor for Webpage
 
 Here's how the code works:
 
